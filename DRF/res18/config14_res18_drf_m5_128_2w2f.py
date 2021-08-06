@@ -65,7 +65,7 @@ evaluation = dict(interval=2, metric='accuracy')
 
 ############## 3. quantization setting ###############
 quant_transformer = dict(
-    type = "mTransformerV2",
+    type = "QuanTransformer",
     quan_policy=dict(
         Conv2d=dict(type='DRFConv', nbits_w=2, nbits_a=2, quant_activation=True),
         Linear=dict(type='DRFLinear', nbits_w=2, nbits_a=2)

@@ -3,7 +3,7 @@ model = dict(
     type='ImageClassifier',
     backbone=dict(
         type='ResNet',
-        depth=18,
+        depth=50,
         num_stages=4,
         out_indices=(3, ),
         style='pytorch'),
@@ -11,7 +11,7 @@ model = dict(
     head=dict(
         type='LinearClsHead',
         num_classes=1000,
-        in_channels=512,
+        in_channels=2048,
         loss=dict(type='CrossEntropyLoss', loss_weight=1.0),
         topk=(1, 5),
     ))
@@ -20,7 +20,8 @@ model = dict(
 # dataset settings
 dataset_type = 'ImageNetV1'
 img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225], to_rgb=True)
+    # mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromNori'),
     dict(type='RandomResizedCrop', size=224),
@@ -31,7 +32,7 @@ train_pipeline = [
     dict(type='Collect', keys=['img', 'gt_label'])
 ]
 test_pipeline = [
-    dict(type='LoadImageFromFile'),
+    dict(type='LoadImageFromNori'),
     dict(type='Resize', size=(256, -1)),
     dict(type='CenterCrop', crop_size=224),
     dict(type='Normalize', **img_norm_cfg),
@@ -40,8 +41,8 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=1,
-    workers_per_gpu=0,
+    samples_per_gpu=16,
+    workers_per_gpu=3,
     train=dict(
         type=dataset_type,
         data_prefix= None,
@@ -58,30 +59,30 @@ data = dict(
         data_prefix= None,
         ann_file="/data/workspace/dataset/imagenet /imagenet.val.nori.list",
         pipeline=test_pipeline))
-evaluation = dict(interval=2, metric='accuracy')
+evaluation = dict(interval=5, metric='accuracy')
 
 ############## 3. quantization setting ###############
 quant_transformer = dict(
-    type = "QuanTransformer",
+    type = "mTransformerV2",
     quan_policy=dict(
-        Conv2d=dict(type='DSQConv', nbits_w=3, nbits_a=3, bSetQ=True),
-        Linear=dict(type='DSQLinear', nbits_w=3, nbits_a=3)
+        Conv2d=dict(type='DSQConv', num_bit_w=3, num_bit_a=3, bSetQ=True),
+        Linear=dict(type='DSQLinear', num_bit_w=3, num_bit_a=3)
         ),
     special_layers = dict(
         layers_name = [
             'backbone.conv1',
             'head.fc'],
-        convert_type = [dict(type='DSQConv', nbits_w=8, nbits_a=8, bSetQ=True, quant_activation=False),
-                        dict(type='DSQLinear', nbits_w=8, nbits_a=8)]
+        convert_type = [dict(type='DSQConv', num_bit_w=8, num_bit_a=8, bSetQ=True, quant_activation=False),
+                        dict(type='DSQLinear', num_bit_w=8, num_bit_a=8)]
         )
 )
 
 ############## 4. optimizer, log, workdir, and etc ###############
 # checkpoint saving
-checkpoint_config = dict(interval=2)
+checkpoint_config = dict(interval=5)
 
 # optimizer
-num_nodes = 1
+num_nodes = 9
 optimizer = dict(type='SGD', lr=0.001 * num_nodes, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 
@@ -103,9 +104,11 @@ log_config = dict(
 #        dict(type='TensorboardLoggerHook')
 ])
 dist_params = dict(backend='nccl')
-work_dir = '/data/workspace/lowbit_classification/workdirs/DSQ/res18/config1_res18_deq_m1_16_3w3f'
+work_dir = '/data/workspace/lowbit_classification/workdirs/DSQ/res50/config7_res50_dsq_m9_16_3w3f'
 workflow = [('train', 1)]
-load_from = None # '../thirdparty/modelzoo/res18.pth'
+load_from = '/data/workspace/lowbit_classification/workdirs/DSQ/res50/config6_res50_dsq_m9_16_4w4f/epoch_70.pth'
+load_from = None
 resume_from = None
-cpu_only=True
+cpu_only=False
 find_unused_parameters = True
+sycbn = True

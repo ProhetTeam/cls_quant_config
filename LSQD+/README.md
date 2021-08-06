@@ -12,20 +12,17 @@
 
 | method | dataset | backbone | node_num |W/A bit| Top-1(%)  | Top-5(%) | BS | CFG|
 |--------|---------|----------|----------|-------|-----------|----------|----|----|
-| LSQD+  | imagnet-1k |  Res18  | 4  |  8 / 8|           |          |64  |[cfg] |
-| LSQD+  |imagnet-1k | Res18   | 4   |  4 / 4|  70.50   |89.49    |64  |[cfg](./config4_res18_lsqdplus_int4_updatelr4x_weightloss_4m.py)  |
-| LSQD+  |imagnet-1k |Res18   | 4    |  3 / 3|   69.28   |88.83    |64 |[cfg](./config6_res18_lsqdplus_int3_allchangenoweightloss_coslr_4m.py)  |
-| LSQD+  |imagnet-1k |Res18   | 4    |  2 / 2|        |     |64  |[cfg]  |  
+| LSQD+  |imagnet-1k | Res18   | 4   |  4 / 4|  70.50   |89.49    |128  |[cfg](./res18/config1_res18_lsqdplus_m4_128_4w4f.py)  |
+| LSQD+  |imagnet-1k |Res18   | 4    |  3 / 3|   69.28   |88.83    |128 |[cfg](./res18/config2_res18_lsqdplus_m4_128_3w3f.py))  |
+| LSQD+  |imagnet-1k |Res18   | 4    |  2 / 2|    -    |  -   |128  |[cfg]  |  
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
-| LSQD+  |imagnet-1k |Res50   | 4   |  8 / 8|       |   |64   | [cfg]  |
-| LSQD+  |imagnet-1k |Res50   | 4    |  4 / 4|   76.90   |93.16   |64   | [cfg](./config9_res50_lsqdplus_int4_addoffset_lr4x__4m.py.py) |
-| LSQD+  |imagnet-1k |Res50   | 4    |  3 / 3|   76.08   |92.85      |64  | [cfg](./config10_res50_lsqdplus_int3_addoffset_coslr4x__4m.py)  |
-| LSQD+  |imagnet-1k |Res50   | 4    |  2 / 2|      |     |64  |[cfg]  | 
+| LSQD+  |imagnet-1k |Res50   | 4    |  4 / 4|   76.90   |93.16   |32   | [cfg](./res50/config1_res50_lsqdplus_m4_32_4w4f.py) |
+| LSQD+  |imagnet-1k |Res50   | 4    |  3 / 3|   76.08   |92.85      |32  | [cfg](./res50/config2_res50_lsqdplus_m4_32_3w3f.py)  |
+| LSQD+  |imagnet-1k |Res50   | 4    |  2 / 2|    -  |   -  |32  |[cfg]  | 
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
-| LSQD+  |imagnet-1k |MobileNet   | 4     |  8 / 8|       |    |32  |[cfg]  |
-| LSQD+  |imagnet-1k |MobileNet   | 4     |  4 / 4| 68.74   |88.48  |32  | [cfg](./config12_mobilenetv2_lsqdplus_int4_addoffset_lr4x_4m.py) |
-| LSQD+  |imagnet-1k |MobileNet   | 4    |  3 / 3|   64.36   |85.65    |32  |[cfg](./config13_mobilenetv2_lsqdplus_int3_addoffset_lr4x_4m.py)  |
-| LSQD+  |imagnet-1k |MobileNet   | 4    |  2 / 2|    |     |32  |[cfg]  | 
+| LSQD+  |imagnet-1k |MobileNet   | 4     |  4 / 4| 68.74   |88.48  |32  | [cfg](./mobilenetv2/config1_mobilenetv2_lsqdplus_m4_32_4w4f.py) |
+| LSQD+  |imagnet-1k |MobileNet   | 4    |  3 / 3|   64.36   |85.65    |32  |[cfg](./mobilenetv2/config2_mobilenetv2_lsqdplus_m4_32_3w3f.py)  |
+| LSQD+  |imagnet-1k |MobileNet   | 4    |  2 / 2|  -  |   -  |32  |[cfg]  | 
 
 
 

@@ -21,5 +21,5 @@
 | LSQ  |imagnet-1k |Res50   | 4    |  2 / 2|   72.00  |    90.70  |32  |[cfg](./res50/config1_res50_lsq_m4_32_2w2f.py)  | 
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
 | LSQ  |imagnet-1k |MobileNet   | 4     |  4 / 4|  67.98   |  88.16   |32  |[cfg](./mobilenetv2/config3_mobilenetv2_lsq_m4_64_4w4f.py)  |
-| LSQ  |imagnet-1k |MobileNet   | 4    |  3 / 3|  57.92  |  81.20   |32  |[cfg](./mobilenetv2/config2_mobilenetv2_lsq_m4_64_3w3f.py)    |
+| LSQ  |imagnet-1k |MobileNet   | 4    |  3 / 3|  64.41  |  85.45   |32  |[cfg](./mobilenetv2/config2_mobilenetv2_lsq_m4_64_3w3f.py)    |
 | LSQ  |imagnet-1k |MobileNet   | 4    |  2 / 2|  -  |  -   |32  |-    | 

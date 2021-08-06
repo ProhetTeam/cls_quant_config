@@ -57,9 +57,9 @@ evaluation = dict(interval=1, metric='accuracy')
 
 ############## 3. quantization setting ###############
 quant_transformer = dict(
-    type = "mTransformerV2",
+    type = "QuanTransformer",
     quan_policy=dict(
-        Conv2d=dict(type='LSQConv2d', nbits_w=2, nbits_a=2, debug = False),
+        Conv2d=dict(type='LSQConv2d', nbits_w=2, nbits_a=2, auto_signed=True),
         # Conv2d=dict(type='LSQDPlusConv2d', 
                     # nbits_w=4,
                     # init_method_w = 4,
@@ -78,7 +78,7 @@ quant_transformer = dict(
         layers_name = [
             'backbone.conv1.conv',
             'head.fc'],
-        convert_type = [dict(type='LSQConv2d', nbits_w=8, nbits_a=8, quant_activation=False, debug = True),
+        convert_type = [dict(type='LSQConv2d', nbits_w=8, nbits_a=8, auto_signed=True),
                         dict(type='LSQLinear', nbits_w=8, nbits_a=8)]
         )
 )

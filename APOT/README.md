@@ -22,4 +22,4 @@
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
 | APOT  |imagnet-1k |MobileNet   | 4     |  4 / 4|  67.98   |  88.16   |32  |[cfg](./mobilenetv2/config3_mobilenetv2_apot_m4_64_4w4f.py)  |
 | APOT  |imagnet-1k |MobileNet   | 4    |  3 / 3|  N/A  |  N/A   |32  |[cfg](./mobilenetv2/config2_mobilenetv2_apot_m4_64_3w3f.py)    |
-| APOT  |imagnet-1k |MobileNet   | 4    |  2 / 2|  -  |  -   |32  |[cfg](./mobilenetv2/config1_mobilenetv2_apot_m4_64_2w2f.py)    | 
+| APOT  |imagnet-1k |MobileNet   | 4    |  2 / 2|  -  |  -   |32  |-   | 

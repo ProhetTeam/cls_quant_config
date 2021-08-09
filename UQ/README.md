@@ -16,5 +16,5 @@ Uniform quantization partitions the whole space in a uniform manner, and vice ve
 | UQ  |imagnet-1k |Res50   | 4    |  2 / 2|    71.84  | 90.58     |32  |[cfg](./res50/config1_res50_uq_m4_32_2w2f.py)  |    ||
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
 | UQ  |imagnet-1k |MobileNet   | 4     |  4 / 4|  67.07     |  87.54    |32  |[cfg](./mobilenetv2/config3_mobilenetv2_uq_m4_32_4w4f.py)  |
-| UQ  |imagnet-1k |MobileNet   | 4    |  3 / 3|  N/A  |  N/A   |32  |[cfg](./mobilenetv2/config2_mobilenetv2_uq_m4_32_3w3f.py)  |
+| UQ  |imagnet-1k |MobileNet   | 4    |  3 / 3|  N/C  |  N/C   |32  |[cfg](./mobilenetv2/config2_mobilenetv2_uq_m4_32_3w3f.py)  |
 | UQ  |imagnet-1k |MobileNet   | 4    |  2 / 2|  -  |   -  |32  |- | 

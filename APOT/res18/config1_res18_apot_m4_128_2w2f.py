@@ -78,11 +78,11 @@ quant_transformer = dict(
 
 ############## 3. optimizer, log, workdir, and etc ###############
 # checkpoint saving
-checkpoint_config = dict(interval=2)
+checkpoint_config = dict(interval=1)
 
 # optimizer
 num_nodes = 3
-optimizer = dict(type='SGD', lr=1e-3 * num_nodes, momentum=0.9, weight_decay=0.25e-4)
+optimizer = dict(type='SGD', lr=1e-2 * num_nodes, momentum=0.9, weight_decay=1e-4)
 optimizer_config = dict(grad_clip=None)
 
 # learning policy
@@ -101,7 +101,7 @@ warmup='linear',
 warmup_iters=500,
 warmup_ratio=0.25)
 
-total_epochs = 120
+total_epochs = 200
 
 
 # logger setting
@@ -113,11 +113,11 @@ log_config = dict(
 #        dict(type='TensorboardLoggerHook')
 ])
 dist_params = dict(backend='nccl')
-work_dir = '/data/work_dirs/APOT/res18/config2_res18_apot_m4_128_2w2f'
+work_dir = '/data/work_dirs/APOT/res18/config2_res18_apot_m4_128_2w2f_new2'
 workflow = [('train', 1)]
 
 load_from = '/data/work_dirs/APOT/res18/config2_res18_apot_m4_128_3w3f/latest.pth'
-resume_from = '/data/work_dirs/APOT/res18/config2_res18_apot_m4_128_3w3f/latest.pth'
+resume_from = ''
 cpu_only=True
 find_unused_parameters = True
 sycbn = False

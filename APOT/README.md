@@ -12,9 +12,9 @@
 
 | method | dataset | backbone | node_num |W/A bit| Top-1(%)  | Top-5(%) | BS | CFG|
 |--------|---------|----------|----------|-------|-----------|----------|----|----|
-| APOT  |imagnet-1k |Res18   | 4   |  4 / 4|   70.60     |  89.71    |128  |[cfg](./res18/config3_res18_apot_m2_64_4w4f.py)  |
-| APOT  |imagnet-1k |Res18   | 4    |  3 / 3|   69.55     |  89.12    |128 |[cfg](./res18/config2_res18_apot_m2_64_3w3f.py)  |
-| APOT  |imagnet-1k |Res18   | 4    |  2 / 2|   66.73     |  87.38    |128  |[cfg](./res18/config1_res18_apot_m2_64_2w2f.py)  |  
+| APOT  |imagnet-1k |Res18   | 4   |  4 / 4|   70.60     |  89.71    |128  |[cfg](./res18/config3_res18_apot_m2_128_4w4f.py)  |
+| APOT  |imagnet-1k |Res18   | 4    |  3 / 3|   69.55     |  89.12    |128 |[cfg](./res18/config2_res18_apot_m2_128_3w3f.py)  |
+| APOT  |imagnet-1k |Res18   | 4    |  2 / 2|   66.73     |  87.38    |128  |[cfg](./res18/config1_res18_apot_m2_128_2w2f.py)  |  
 |----|--------|-----------|----------|-------|-------------|----------|---|------------|
 | APOT  |imagnet-1k |Res50   | 4    |  4 / 4| 76.41  | 93.09 |32  |[cfg](./res50/config3_res50_apot_m4_32_4w4f.py)  |
 | APOT  |imagnet-1k |Res50   | 4    |  3 / 3|   75.77   |  92.60       |32  |[cfg](./res50/config2_res50_apot_m4_32_3w3f.py)  |
